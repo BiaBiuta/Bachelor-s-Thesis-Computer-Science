@@ -28,5 +28,3 @@ sonnel responsible for the nurse scheduling task- it provides the valuable featu
 of automatic schedule generation, as well as features for visualizing and manua
 lly editing the schedule, managing personal nurse preferences for work shifts, and
 administering resources between multiple medical departments.
-This work is the result of my own activity. I have never provided or received
-unauthorized assistance in this work.
