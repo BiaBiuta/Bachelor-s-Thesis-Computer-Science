@@ -1,0 +1,44 @@
+{# templates/admin/calendarapp/shiftrequest/change_list.html#}
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls static %}
+{##}
+{##}
+
+{% block extrahead %}
+  {{ block.super }}
+
+{% endblock %}
+{% block content %}
+  {{ block.super }}
+  <p>ID-uri selectate:
+  {% for id in selected_ids %}
+    {{ id }}{% if not forloop.last %} {% endif %}
+  {% endfor %}
+  </p>
+{% endblock %}
+
+{% block extrascripts %}
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var changeListForm = document.getElementById('changelist-form');
+        console.log("sunt in script de js ")
+        if (changeListForm) {
+
+            changeListForm.addEventListener('submit', function(event) {
+
+                console.log("am intrat in js")
+                var payload = {
+                    action: 'save_shift_requests',
+                    timestamp: new Date().toISOString()
+                };
+                socket.send(JSON.stringify({
+                    type:'save_shift_requests',
+                    payload:payload}));
+                console.log("am trimis!")
+            });
+        }
+    });
+</script>
+{%endblock%}

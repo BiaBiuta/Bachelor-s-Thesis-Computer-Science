@@ -1,0 +1,82 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls static %}
+
+
+{% block sidebar %}
+{% endblock %}
+
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/admin_emergency_cards.css' %}">
+{% endblock %}
+
+
+{% block result_list %}
+
+  <h1 class="page-title">{{ cl.title }}</h1>
+
+
+  <div class="site-cards-container">
+    {% for obj in cl.result_list %}
+      <div class="site-emergency-card">
+
+        <h2 class="card-title">
+          <a href="{% url 'admin:calendarapp_emergencyrequest_change' obj.pk %}">
+            {{ obj.date }}
+          </a>
+        </h2>
+
+
+        <div class="card-section">
+          <span class="section-label">{% trans "Nurse de chemat:" %}</span>
+          {% if obj.call_nurses.count %}
+            <span class="section-content">
+              {{ obj.call_nurses.all|join:", " }}
+            </span>
+          {% else %}
+            <span class="section-empty">{% trans "– niciuna –" %}</span>
+          {% endif %}
+        </div>
+
+
+        <div class="card-section">
+          <span class="section-label">{% trans "Nurse de scos din tură:" %}</span>
+          {% if obj.remove_nurses.count %}
+            <span class="section-content">
+              {{ obj.remove_nurses.all|join:", " }}
+            </span>
+          {% else %}
+            <span class="section-empty">{% trans "– niciuna –" %}</span>
+          {% endif %}
+        </div>
+
+
+        <div class="card-section">
+          <span class="section-label">{% trans "Status:" %}</span>
+          <span class="status-badge {{ obj.status }}">
+            {{ obj.get_status_display }}
+          </span>
+        </div>
+
+
+        <div class="card-footer">
+          <a href="{% url 'admin:calendarapp_emergencyrequest_change' obj.pk %}"
+             class="edit-button">
+            {% trans "Edit" %}
+          </a>
+        </div>
+      </div>
+    {% empty %}
+      <div class="no-objects-msg">
+        <p>{% trans "Nu există cereri de urgență în acest moment." %}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+
+  {% block pagination %}
+    {{ block.super }}
+  {% endblock %}
+
+{% endblock %}

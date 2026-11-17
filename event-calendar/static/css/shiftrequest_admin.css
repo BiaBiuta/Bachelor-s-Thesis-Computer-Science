@@ -1,0 +1,149 @@
+
+.shiftwrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 1rem;
+  align-items: flex-start;
+}
+
+
+.main-content {
+  flex: 3;
+  overflow-x: auto;
+}
+
+
+.filter-right {
+  flex: 1;
+  min-width: 200px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  padding: 1rem;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+
+.main-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.main-content table thead th {
+  border: 1px solid #aaa;
+  background-color: #f7f7f7;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+
+.main-content table tbody td {
+  border: 1px solid #ddd;
+  padding: 0.6rem 0.8rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+
+.main-content table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.main-content table th:nth-child(1),
+.main-content table td:nth-child(1) {
+  width: 15%;
+}
+.main-content table th:nth-child(2),
+.main-content table td:nth-child(2) {
+  width: 15%;
+}
+.main-content table th:nth-child(3),
+.main-content table td:nth-child(3) {
+  width: 10%;
+}
+.main-content table th:nth-child(4),
+.main-content table td:nth-child(4) {
+  width: 15%;
+}
+.main-content table th:nth-child(5),
+.main-content table td:nth-child(5) {
+  width: 10%;
+}
+.main-content table th:nth-child(6),
+.main-content table td:nth-child(6) {
+  width: 10%;
+}
+.main-content table th:nth-child(7),
+.main-content table td:nth-child(7) {
+  width: 10%;
+}
+
+
+#changelist-filter h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.custom-filter-section {
+  margin-bottom: 1.5rem;
+}
+
+
+.custom-filter-section h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #444444;
+  text-transform: capitalize;
+}
+
+
+.custom-filter-section ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+
+.custom-filter-section ul li {
+  margin-bottom: 0.4rem;
+}
+
+
+.custom-filter-section ul li.chosen a {
+  font-weight: 600;
+  color: #2a6ebb;
+}
+
+
+.custom-filter-section ul li a {
+  color: #2a6ebb;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.custom-filter-section ul li a:hover {
+  text-decoration: underline;
+}
+
+
+.filter-right::-webkit-scrollbar {
+  width: 6px;
+}
+.filter-right::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.paginator {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
